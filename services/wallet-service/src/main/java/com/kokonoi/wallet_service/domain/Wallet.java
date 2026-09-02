@@ -1,6 +1,8 @@
 package com.kokonoi.wallet_service.domain;
 
 import java.time.Instant;
+
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import jakarta.persistence.Entity;
@@ -24,9 +26,8 @@ import lombok.Setter;
 @EntityListeners(AuditingEntityListener.class)
 @Builder
 public class Wallet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @UuidGenerator
+    private Long walletId;
 
     private String userId;
 
